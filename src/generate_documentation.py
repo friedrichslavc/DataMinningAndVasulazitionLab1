@@ -52,8 +52,8 @@ def get_image_base64(image_path):
 
 def generate_html_documentation():
     """生成HTML格式的文档"""
-    main_py_path = "main.py"
-    output_path = "visualization_documentation.html"
+    main_py_path = os.path.join(os.path.dirname(__file__), "main.py")
+    output_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "docs", "visualization_documentation.html")
     
     # 检查main.py是否存在
     if not os.path.exists(main_py_path):
@@ -61,60 +61,64 @@ def generate_html_documentation():
         return
     
     # 图表信息
+    # 获取项目根目录路径
+    project_root = os.path.dirname(os.path.dirname(__file__))
+    images_dir = os.path.join(project_root, "images")
+    
     charts = [
         {
             "name": "蜡烛图",
-            "file": "candlestick_chart.png",
-            "html_file": "candlestick_chart_simple.html",
+            "file": os.path.join(images_dir, "candlestick_chart.png"),
+            "html_file": os.path.join(images_dir, "candlestick_chart_simple.html"),
             "code_marker": "# 2. Candlestick Chart",
             "end_marker": "# 3. Volume vs. Close Price Scatter Plot",
             "description": "展示了特斯拉股票的价格走势，包括开盘价、收盘价、最高价和最低价。红色蜡烛表示上涨，绿色蜡烛表示下跌。"
         },
         {
             "name": "交易量与收盘价散点图",
-            "file": "volume_vs_close.png",
+            "file": os.path.join(images_dir, "volume_vs_close.png"),
             "code_marker": "# 3. Volume vs. Close Price Scatter Plot",
             "end_marker": "# 将第一列重命名为Date",
             "description": "展示了交易量与收盘价之间的关系，帮助分析交易量与价格变动的相关性。"
         },
         {
             "name": "收盘价走势图",
-            "file": "close_price_trend.png",
+            "file": os.path.join(images_dir, "close_price_trend.png"),
             "code_marker": "plt.figure(figsize=(12,6))",
             "end_marker": "# 4. Moving Averages",
             "description": "展示了特斯拉股票收盘价随时间的变化，可以清晰地显示长期趋势。"
         },
         {
             "name": "移动平均线图",
-            "file": "moving_averages.png",
+            "file": os.path.join(images_dir, "moving_averages.png"),
             "code_marker": "# 4. Moving Averages",
             "end_marker": "# 5. Histogram for Price Distribution",
             "description": "展示了股票价格与50日和200日移动平均线的关系，帮助识别中长期趋势。"
         },
         {
             "name": "价格分布直方图",
-            "file": "price_distribution.png",
+            "file": os.path.join(images_dir, "price_distribution.png"),
             "code_marker": "# 5. Histogram for Price Distribution",
             "end_marker": "# 6. Box Plot for Price Volatility",
             "description": "展示了特斯拉股票收盘价的频率分布，帮助分析价格的集中趋势和分散程度。"
         },
         {
             "name": "价格波动箱线图",
-            "file": "price_volatility.png",
+            "file": os.path.join(images_dir, "price_volatility.png"),
             "code_marker": "# 6. Box Plot for Price Volatility",
             "end_marker": "# 移除plt.show()调用",
             "description": "展示了开盘价、收盘价、最高价和最低价的分布情况，帮助分析价格的波动范围和异常值。"
         },
         {
             "name": "相关性热力图",
-            "file": "correlation_heatmap.png",
+            "file": os.path.join(images_dir, "correlation_heatmap.png"),
             "code_marker": "# 7. 相关性热力图",
             "end_marker": "# 解释相关性热力图",
             "description": "展示了各价格指标和交易量之间的相关性强度，帮助分析变量间的关系。"
         },
         {
             "name": "特斯拉股票词云图",
-            "file": "tesla_wordcloud.png",
+            "file": os.path.join(images_dir, "tesla_wordcloud.png"),
             "code_marker": "# 7. 生成词云",
             "end_marker": "# 尝试使用备用方法生成词云",
             "description": "直观地展示了与特斯拉股票相关的高频词汇，反映了投资者关注的焦点。"
@@ -255,8 +259,8 @@ def generate_html_documentation():
 
 def generate_markdown_documentation():
     """生成Markdown格式的文档"""
-    main_py_path = "main.py"
-    output_path = "visualization_documentation.md"
+    main_py_path = os.path.join(os.path.dirname(__file__), "main.py")
+    output_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "docs", "visualization_documentation.md")
     
     # 检查main.py是否存在
     if not os.path.exists(main_py_path):
@@ -264,60 +268,64 @@ def generate_markdown_documentation():
         return
     
     # 图表信息
+    # 获取项目根目录路径
+    project_root = os.path.dirname(os.path.dirname(__file__))
+    images_dir = os.path.join(project_root, "images")
+    
     charts = [
         {
             "name": "蜡烛图",
-            "file": "candlestick_chart.png",
-            "html_file": "candlestick_chart_simple.html",
+            "file": os.path.join(images_dir, "candlestick_chart.png"),
+            "html_file": os.path.join(images_dir, "candlestick_chart_simple.html"),
             "code_marker": "# 2. Candlestick Chart",
             "end_marker": "# 3. Volume vs. Close Price Scatter Plot",
             "description": "展示了特斯拉股票的价格走势，包括开盘价、收盘价、最高价和最低价。红色蜡烛表示上涨，绿色蜡烛表示下跌。"
         },
         {
             "name": "交易量与收盘价散点图",
-            "file": "volume_vs_close.png",
+            "file": os.path.join(images_dir, "volume_vs_close.png"),
             "code_marker": "# 3. Volume vs. Close Price Scatter Plot",
             "end_marker": "# 将第一列重命名为Date",
             "description": "展示了交易量与收盘价之间的关系，帮助分析交易量与价格变动的相关性。"
         },
         {
             "name": "收盘价走势图",
-            "file": "close_price_trend.png",
+            "file": os.path.join(images_dir, "close_price_trend.png"),
             "code_marker": "plt.figure(figsize=(12,6))",
             "end_marker": "# 4. Moving Averages",
             "description": "展示了特斯拉股票收盘价随时间的变化，可以清晰地显示长期趋势。"
         },
         {
             "name": "移动平均线图",
-            "file": "moving_averages.png",
+            "file": os.path.join(images_dir, "moving_averages.png"),
             "code_marker": "# 4. Moving Averages",
             "end_marker": "# 5. Histogram for Price Distribution",
             "description": "展示了股票价格与50日和200日移动平均线的关系，帮助识别中长期趋势。"
         },
         {
             "name": "价格分布直方图",
-            "file": "price_distribution.png",
+            "file": os.path.join(images_dir, "price_distribution.png"),
             "code_marker": "# 5. Histogram for Price Distribution",
             "end_marker": "# 6. Box Plot for Price Volatility",
             "description": "展示了特斯拉股票收盘价的频率分布，帮助分析价格的集中趋势和分散程度。"
         },
         {
             "name": "价格波动箱线图",
-            "file": "price_volatility.png",
+            "file": os.path.join(images_dir, "price_volatility.png"),
             "code_marker": "# 6. Box Plot for Price Volatility",
             "end_marker": "# 移除plt.show()调用",
             "description": "展示了开盘价、收盘价、最高价和最低价的分布情况，帮助分析价格的波动范围和异常值。"
         },
         {
             "name": "相关性热力图",
-            "file": "correlation_heatmap.png",
+            "file": os.path.join(images_dir, "correlation_heatmap.png"),
             "code_marker": "# 7. 相关性热力图",
             "end_marker": "# 解释相关性热力图",
             "description": "展示了各价格指标和交易量之间的相关性强度，帮助分析变量间的关系。"
         },
         {
             "name": "特斯拉股票词云图",
-            "file": "tesla_wordcloud.png",
+            "file": os.path.join(images_dir, "tesla_wordcloud.png"),
             "code_marker": "# 7. 生成词云",
             "end_marker": "# 尝试使用备用方法生成词云",
             "description": "直观地展示了与特斯拉股票相关的高频词汇，反映了投资者关注的焦点。"

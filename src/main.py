@@ -81,7 +81,10 @@ plt.tight_layout()
 
 # 保存为PNG格式
 import os
-png_file_path = os.path.join(os.getcwd(), "candlestick_chart.png")
+# 确保images目录存在
+if not os.path.exists('images'):
+    os.makedirs('images')
+png_file_path = os.path.join(os.getcwd(), "images", "candlestick_chart.png")
 plt.savefig(png_file_path, dpi=100)
 plt.close()
 print(f"蜡烛图已保存为PNG格式: {png_file_path}")
@@ -149,7 +152,7 @@ try:
     fig.update_xaxes(type='category', tickformat='%Y-%m-%d')
     
     # 使用配置保存HTML
-    html_file_path = os.path.join(os.getcwd(), "candlestick_chart_simple.html")
+    html_file_path = os.path.join(os.getcwd(), "images", "candlestick_chart_simple.html")
     fig.write_html(
         html_file_path, 
         include_plotlyjs='cdn', 
@@ -178,9 +181,9 @@ sns.scatterplot(x=df['Volume'], y=df['Close'], color="purple", alpha=0.6)
 plt.title("Volume vs. Close Price")
 plt.xlabel("Volume")
 plt.ylabel("Close Price")
-plt.savefig("volume_vs_close.png")
+plt.savefig(os.path.join("images", "volume_vs_close.png"))
 plt.close()
-print("交易量与收盘价散点图已保存为volume_vs_close.png")
+print("交易量与收盘价散点图已保存为images/volume_vs_close.png")
 # 移除plt.show()调用
 
 # 将第一列重命名为Date并转换为datetime格式并设置为索引
@@ -199,9 +202,9 @@ print(df.dtypes)
 plt.figure(figsize=(12,6))
 sns.lineplot(data=df, x=df.index, y="Close")
 plt.title("收盘价走势图")
-plt.savefig("close_price_trend.png")
+plt.savefig(os.path.join("images", "close_price_trend.png"))
 plt.close()
-print("收盘价走势图已保存为close_price_trend.png")
+print("收盘价走势图已保存为images/close_price_trend.png")
 
 # 4. Moving Averages
 df["50_MA"] = df["Close"].rolling(window=50).mean()
@@ -215,9 +218,9 @@ plt.legend()
 plt.title("Stock Price with Moving Averages")
 plt.xlabel("Date")
 plt.ylabel("Price")
-plt.savefig("moving_averages.png")
+plt.savefig(os.path.join("images", "moving_averages.png"))
 plt.close()
-print("移动平均线图已保存为moving_averages.png")
+print("移动平均线图已保存为images/moving_averages.png")
 
 # 5. Histogram for Price Distribution
 plt.figure(figsize=(10, 5))
@@ -225,9 +228,9 @@ sns.histplot(df["Close"], bins=30, kde=True, color="blue")
 plt.title("Close Price Distribution")
 plt.xlabel("Close Price")
 plt.ylabel("Frequency")
-plt.savefig("price_distribution.png")
+plt.savefig(os.path.join("images", "price_distribution.png"))
 plt.close()
-print("价格分布直方图已保存为price_distribution.png")
+print("价格分布直方图已保存为images/price_distribution.png")
 
 # 6. Box Plot for Price Volatility
 plt.figure(figsize=(8, 6))
@@ -235,9 +238,9 @@ sns.boxplot(data=df[['Open', 'Close', 'High', 'Low']], palette="coolwarm")
 plt.title("Price Volatility (Box Plot)")
 plt.xlabel("Price Type")
 plt.ylabel("Value")
-plt.savefig("price_volatility.png")
+plt.savefig(os.path.join("images", "price_volatility.png"))
 plt.close()
-print("价格波动箱线图已保存为price_volatility.png")
+print("价格波动箱线图已保存为images/price_volatility.png")
 # 移除plt.show()调用
 
 df.columns
@@ -380,9 +383,9 @@ sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1, ce
            square=True, linewidths=.5, cbar_kws={"shrink": .8})
 plt.title('特斯拉股票数据相关性热力图', fontsize=16)
 plt.tight_layout()
-plt.savefig('correlation_heatmap.png', dpi=300)
+plt.savefig(os.path.join('images', 'correlation_heatmap.png'), dpi=300)
 plt.close()
-print("相关性热力图已保存为correlation_heatmap.png")
+print("相关性热力图已保存为images/correlation_heatmap.png")
 
 # 解释相关性热力图
 print("\n(5) 相关性热力图分析:")
@@ -493,9 +496,9 @@ plt.figure(figsize=(10, 6))
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
 plt.title('特斯拉股票相关词云')
-plt.savefig('tesla_wordcloud.png', dpi=300)
+plt.savefig(os.path.join('images', 'tesla_wordcloud.png'), dpi=300)
 plt.close()
-print("词云图已保存为tesla_wordcloud.png")
+print("词云图已保存为images/tesla_wordcloud.png")
 
 # 尝试使用备用方法生成词云（如果上面的方法失败）
 try:
@@ -515,9 +518,9 @@ try:
     plt.imshow(wordcloud_alt, interpolation='bilinear')
     plt.axis('off')
     plt.title('特斯拉股票相关词云 (备用方法)')
-    plt.savefig('tesla_wordcloud_alt.png', dpi=300)
+    plt.savefig(os.path.join('images', 'tesla_wordcloud_alt.png'), dpi=300)
     plt.close()
-    print("备用词云图已保存为tesla_wordcloud_alt.png")
+    print("备用词云图已保存为images/tesla_wordcloud_alt.png")
 except Exception as e:
     print(f"生成备用词云图时出错: {e}")
     print("请使用第一个词云图或手动调整字体路径")
@@ -537,9 +540,9 @@ sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1, ce
            square=True, linewidths=.5, cbar_kws={"shrink": .8})
 plt.title('特斯拉股票数据相关性热力图', fontsize=16)
 plt.tight_layout()
-plt.savefig('correlation_heatmap.png', dpi=300)
+plt.savefig(os.path.join('images', 'correlation_heatmap.png'), dpi=300)
 plt.close()
-print("相关性热力图已保存为correlation_heatmap.png")
+print("相关性热力图已保存为images/correlation_heatmap.png")
 
 # 解释相关性热力图
 print("\n(5) 相关性热力图分析:")

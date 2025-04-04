@@ -63,13 +63,13 @@ python src/main.py
 
 ### 1. 蜡烛图
 
-![蜡烛图](candlestick_chart.png)
+![蜡烛图](images/candlestick_chart.png)
 
 展示特斯拉股票的价格走势，包括开盘价、收盘价、最高价和最低价。红色蜡烛表示上涨，绿色蜡烛表示下跌。
 
 ### 2. 交易量与收盘价散点图
 
-![交易量与收盘价散点图](volume_vs_close.png)
+![交易量与收盘价散点图](images/volume_vs_close.png)
 
 展示交易量与收盘价之间的关系，帮助分析交易量与价格变动的相关性。
 
@@ -81,31 +81,31 @@ python src/main.py
 
 ### 4. 移动平均线图
 
-![移动平均线图](moving_averages.png)
+![移动平均线图](images/moving_averages.png)
 
 展示股票价格与50日和200日移动平均线的关系，帮助识别中长期趋势。
 
 ### 5. 价格分布直方图
 
-![价格分布直方图](price_distribution.png)
+![价格分布直方图](images/price_distribution.png)
 
 展示特斯拉股票收盘价的频率分布，帮助分析价格的集中趋势和分散程度。
 
 ### 6. 价格波动箱线图
 
-![价格波动箱线图](price_volatility.png)
+![价格波动箱线图](images/price_volatility.png)
 
 展示股票价格的波动情况，包括中位数、四分位数和异常值。
 
 ### 7. 相关性热力图
 
-![相关性热力图](correlation_heatmap.png)
+![相关性热力图](images/correlation_heatmap.png)
 
 展示各价格指标和交易量之间的相关性强度，帮助分析变量间的关系。
 
 ### 8. 特斯拉股票词云图
 
-![特斯拉股票词云图](tesla_wordcloud.png)
+![特斯拉股票词云图](images/tesla_wordcloud.png)
 
 直观展示与特斯拉股票相关的关键词及其重要性。
 
@@ -118,12 +118,23 @@ python src/main.py
 ├── .github/                   # GitHub配置文件
 │   └── workflows/             # GitHub Actions工作流
 │       └── pylint.yml         # Python代码质量检查配置
-├── main.py                    # 主程序文件
-├── generate_documentation.py  # 文档生成脚本
+├── src/                       # 源代码文件夹
+│   ├── main.py                # 主程序文件
+│   └── generate_documentation.py  # 文档生成脚本
+├── images/                    # 图表文件夹
+│   ├── candlestick_chart.png  # 蜡烛图
+│   ├── close_price_trend.png  # 收盘价走势图
+│   ├── correlation_heatmap.png # 相关性热力图
+│   ├── moving_averages.png    # 移动平均线图
+│   ├── price_distribution.png # 价格分布直方图
+│   ├── price_volatility.png   # 价格波动箱线图
+│   ├── tesla_wordcloud.png    # 特斯拉股票词云图
+│   └── volume_vs_close.png    # 交易量与收盘价散点图
+├── docs/                      # 文档文件夹
+│   ├── visualization_documentation.html  # HTML格式的可视化文档
+│   └── visualization_documentation.md    # Markdown格式的可视化文档
 ├── requirements.txt           # 项目依赖列表
-├── *.png                      # 生成的图表文件
-├── visualization_documentation.html  # HTML格式的可视化文档
-└── visualization_documentation.md    # Markdown格式的可视化文档
+└── README.md                  # 项目说明文档
 ```
 
 ## 依赖包

@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1d82c7f-5708-4265-b09f-cf312b137bc3" name="更改" comment="修改文档" />
+    <list default="true" id="b1d82c7f-5708-4265-b09f-cf312b137bc3" name="更改" comment="改进项目结构，更新README">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/candlestick_chart_simple.html" beforeDir="false" afterPath="$PROJECT_DIR$/images/candlestick_chart_simple.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generate_documentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/generate_documentation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1743690855758</updated>
-      <workItem from="1743690857111" duration="7994000" />
+      <workItem from="1743690857111" duration="9430000" />
     </task>
     <task id="LOCAL-00001" summary="进一步优化了文档">
       <option name="closed" value="true" />
@@ -81,7 +87,23 @@
       <option name="project" value="LOCAL" />
       <updated>1743729510039</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="修复pylint.yml文件">
+      <option name="closed" value="true" />
+      <created>1743729817084</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1743729817084</updated>
+    </task>
+    <task id="LOCAL-00004" summary="改进项目结构，更新README">
+      <option name="closed" value="true" />
+      <created>1743730405283</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1743730405283</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,7 +123,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="进一步优化了文档" />
     <MESSAGE value="修改文档" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改文档" />
+    <MESSAGE value="修复pylint.yml文件" />
+    <MESSAGE value="改进项目结构，更新README" />
+    <option name="LAST_COMMIT_MESSAGE" value="改进项目结构，更新README" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/pythonProject$main.coverage" NAME="main 覆盖结果" MODIFIED="1743695138880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
