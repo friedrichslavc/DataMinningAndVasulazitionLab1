@@ -48,7 +48,31 @@
         <h2 id="stats">统计学特征计算结果</h2>
         <div class="stats">
             <h3>数值型变量的统计特征</h3>
-            <pre><code>未找到相关代码</code></pre>
+            <pre><code># 3. 统计学特征计算
+print("\n3. 统计学特征计算:")
+
+# 选择数值型列进行统计分析
+numerical_cols = ['Close', 'High', 'Low', 'Open', 'Volume']
+
+# 创建一个空的DataFrame来存储统计结果
+stats_df = pd.DataFrame(index=numerical_cols)
+
+# 计算各种统计指标
+stats_df['均值'] = df[numerical_cols].mean()
+stats_df['中位数'] = df[numerical_cols].median()
+stats_df['标准差'] = df[numerical_cols].std()
+stats_df['最小值'] = df[numerical_cols].min()
+stats_df['最大值'] = df[numerical_cols].max()
+stats_df['25%分位数'] = df[numerical_cols].quantile(0.25)
+stats_df['75%分位数'] = df[numerical_cols].quantile(0.75)
+stats_df['偏度'] = df[numerical_cols].skew()
+stats_df['峰度'] = df[numerical_cols].kurt()
+
+# 打印统计结果表格
+print("\n数值型变量的统计特征:")
+print(stats_df.round(2))
+
+# 4. 统计结果解释</code></pre>
             
             <p>统计特征解释：</p>
             <ul>

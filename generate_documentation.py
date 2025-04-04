@@ -124,6 +124,10 @@ def generate_html_documentation():
     # 提取统计特征计算代码
     stats_code = extract_code_block(main_py_path, "# 3. 统计学特征计算:", "# 4. 统计结果解释")
     
+    # 如果没有找到统计特征计算代码，尝试不带冒号的标记
+    if stats_code == "未找到相关代码":
+        stats_code = extract_code_block(main_py_path, "# 3. 统计学特征计算", "# 4. 统计结果解释")
+    
     # HTML文档头部
     html_content = f"""
     <!DOCTYPE html>
@@ -322,6 +326,10 @@ def generate_markdown_documentation():
     
     # 提取统计特征计算代码
     stats_code = extract_code_block(main_py_path, "# 3. 统计学特征计算:", "# 4. 统计结果解释")
+    
+    # 如果没有找到统计特征计算代码，尝试不带冒号的标记
+    if stats_code == "未找到相关代码":
+        stats_code = extract_code_block(main_py_path, "# 3. 统计学特征计算", "# 4. 统计结果解释")
     
     # Markdown文档头部
     md_content = """# 数据可视化文档
