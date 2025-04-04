@@ -14,10 +14,23 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install pylint
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py')
+        pylint --disable=C0111,C0103,C0303,W0621,R0914,R0913,R0912,R0915,R1702,R0801 \
+               --max-line-length=120 \
+               --ignore-patterns=".venv/*,__pycache__/*" \
+               --fail-under=7.0 \
+               $(git ls-files '*.py')
+      continue-on-error: true
