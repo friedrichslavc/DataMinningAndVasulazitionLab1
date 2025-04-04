@@ -20,7 +20,7 @@
 
 ```bash
 # 克隆项目到本地
-git clone [项目地址]
+git clone https://github.com/friedrichslavc/DataMinningAndVasulazitionLab1.git
 # 或直接下载ZIP文件并解压
 ```
 
